@@ -48,3 +48,12 @@ Service types should be:
 - Be meaningful
 - Not use terms which are incredibly overloaded in OpenStack space
   (i.e. policy)
+
+Non Official Types in Service Catalog
+=====================================
+
+The OpenStack Service Catalog can be used for listing services outside
+of the standardized service types. There will be no official registry
+of these types, so conflicts are possible. As such, the types should
+include an org prefix '$org:' where $org is something recognizable to
+a particular organization and not part of the OpenStack ecosystem.
