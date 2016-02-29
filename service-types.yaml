@@ -1,0 +1,15 @@
+services:
+  identity:
+    project: openstack/keystone
+    # TODO(sdague): this should be an overall pointer to the service
+    # API, this is just a subset.
+    api_reference: http://developer.openstack.org/api-ref/identity/v3/index.html
+  compute:
+    project: openstack/nova
+    api_reference: http://developer.openstack.org/api-ref/compute/
+  image:
+    project: openstack/glance
+    api_reference: http://developer.openstack.org/api-ref/image/
+  object-store:
+    project: openstack/swift
+    api_reference: http://developer.openstack.org/api-ref/object-storage/
