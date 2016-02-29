@@ -37,3 +37,14 @@ description (optional)
 
 A short description about the service in question. It helps people
 reading only this document.
+
+Naming
+======
+
+Service types should be:
+
+- English words
+- Be matched by the regex [a-z\-]+
+- Be meaningful
+- Not use terms which are incredibly overloaded in OpenStack space
+  (i.e. policy)
