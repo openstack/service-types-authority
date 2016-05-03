@@ -1,0 +1,15 @@
+Code-Review+2: Brant Knudson <bknudson@us.ibm.com>
+Code-Review+1: jichenjc <jichenjc@cn.ibm.com>
+Code-Review+1: Ryan Brown <rybrown@redhat.com>
+Code-Review+1: Mike Perez <thingee@gmail.com>
+Code-Review+1: Qiming Teng <tengqim@cn.ibm.com>
+Code-Review+1: Steve Martinelli <s.martinelli@gmail.com>
+Code-Review+1: Andreas Jaeger <jaegerandi@gmail.com>
+Code-Review+2: Michael McCune <msm@redhat.com>
+Workflow+1: Michael McCune <msm@redhat.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Tue, 03 May 2016 21:09:19 +0000
+Reviewed-on: https://review.openstack.org/286088
+Project: openstack/service-types-authority
+Branch: refs/heads/master
