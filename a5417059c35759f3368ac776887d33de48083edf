@@ -1,0 +1,10 @@
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Code-Review+1: Michael McCune <msm@redhat.com>
+Code-Review+2: Ed Leafe <ed@leafe.com>
+Workflow+1: Ed Leafe <ed@leafe.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Mon, 09 Jan 2017 21:00:20 +0000
+Reviewed-on: https://review.openstack.org/286091
+Project: openstack/service-types-authority
+Branch: refs/heads/master
