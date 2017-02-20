@@ -48,6 +48,7 @@ Service types should be:
 - Be meaningful
 - Not use terms which are incredibly overloaded in OpenStack space
   (i.e. policy)
+- A thing, not an action (i.e. load-balancer, not load-balancing)
 
 Non Official Types in Service Catalog
 =====================================
