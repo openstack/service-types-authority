@@ -77,6 +77,7 @@ Service types should be:
   (i.e. policy)
 - A thing, not an action (i.e. load-balancer, not load-balancing)
 - Singular instead of plural (i.e. image, not images)
+- Unversioned (volume, not volumev2)
 
 Non Official Types in Service Catalog
 =====================================
