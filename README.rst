@@ -43,6 +43,28 @@ description (optional)
 A short description about the service in question. It helps people
 reading only this document.
 
+aliases (optional)
+------------------
+
+An ordered list of historical aliases for this service type.
+
+.. note:: The list of aliases is **only** for communicating the existing
+          set of other names that services have gone by from the time before
+          this list existed. Changing a ``service-type`` is **VERY BAD** and
+          breaks users. It's important to list them so that everyone can
+          share in the knowledge of what to do with the clouds that are out
+          there, but seriously, putting things here is only for documenting
+          history, not for making new changes.
+
+A service must have one and only one known service type. However,
+there are older names that have been commonly used for some services. In
+order for API consumers to be able to count on the Service Types Authority
+service-type as an inbound interface they expect, ``aliases`` provides a
+ordered list of known fallback names. If an API consumer cannot find a given
+``service-type`` in the ``service-catalog``, they are directed to try the
+list of ``aliases`` here, in the order they are given, in order to find
+the requested endpoint.
+
 Naming
 ======
 
