@@ -1,9 +1,7 @@
 services:
 - service_type: identity
   project: openstack/keystone
-  # TODO(sdague): this should be an overall pointer to the service
-  # API, this is just a subset.
-  api_reference: http://developer.openstack.org/api-ref/identity/v3/index.html
+  api_reference: http://developer.openstack.org/api-ref/identity/
 - service_type: compute
   project: openstack/nova
   api_reference: http://developer.openstack.org/api-ref/compute/
