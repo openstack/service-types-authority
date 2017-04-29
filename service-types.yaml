@@ -14,3 +14,120 @@ services:
 - service_type: object-store
   project: openstack/swift
   api_reference: http://developer.openstack.org/api-ref/object-storage/
+- project: openstack/senlin
+  api_reference: http://developer.openstack.org/api-ref/clustering/
+  service_type: resource-cluster
+  aliases:
+  - clustering
+- project: openstack/sahara
+  api_reference: http://developer.openstack.org/api-ref/data-processing/
+  service_type: data-processing
+- project: openstack/ironic
+  api_reference: http://developer.openstack.org/api-ref/baremetal/
+  service_type: baremetal
+- project: openstack/ironic-inspector
+  api_reference: http://docs.openstack.org/developer/ironic-inspector/http-api.html
+  service_type: baremetal-introspection
+- project: openstack/barbican
+  api_reference: http://developer.openstack.org/api-ref/key-manager/
+  service_type: key-manager
+- project: openstack/ec2-api
+  api_reference: http://developer.openstack.org/api-ref/ec2-api/
+  service_type: ec2-api
+- project: openstack/watcher
+  api_reference: https://docs.openstack.org/developer/watcher/webapi/v1.html
+  service_type: resource-optimization
+  aliases:
+  - infra-optim
+- project: openstack/zaqar
+  api_reference: http://developer.openstack.org/api-ref/messaging/
+  service_type: message
+  aliases:
+  - messaging
+- project: openstack/murano
+  api_reference: http://developer.openstack.org/api-ref/application-catalog/
+  service_type: application-catalog
+- project: openstack/magnum
+  api_reference: http://developer.openstack.org/api-ref/container-infrastructure-management/
+  service_type: container-infrastructure-management
+  aliases:
+  - container-infrastructure
+- project: openstack/searchlight
+  api_reference: http://developer.openstack.org/api-ref/search/
+  service_type: search
+- project: openstack/designate
+  api_reference: http://developer.openstack.org/api-ref/dns/
+  service_type: dns
+- project: openstack/mistral
+  api_reference: http://docs.openstack.org/developer/mistral/developer/webapi/index.html
+  service_type: workflow
+  aliases:
+  - workflowv2
+- project: openstack/cloudkitty
+  api_reference: http://docs.openstack.org/developer/cloudkitty/webapi/root.html
+  service_type: rating
+- project: openstack/congress
+  api_reference: http://docs.openstack.org/developer/congress/api.html
+  service_type: operator-policy
+  aliases:
+  - policy
+- project: openstack/manila
+  api_reference: http://developer.openstack.org/api-ref/shared-file-systems/
+  service_type: shared-file-system
+  aliases:
+  - sharev2
+  - share
+- project: openstack/karbor
+  api_reference: https://developer.openstack.org/api-ref/data-protection-orchestration/
+  service_type: data-protection-orchestration
+- project: openstack/heat
+  api_reference: http://developer.openstack.org/api-ref/orchestration/
+  service_type: orchestration
+- project: openstack/cinder
+  api_reference: http://developer.openstack.org/api-ref/block-storage/
+  service_type: block-storage
+  aliases:
+  - volume
+  - volumev2
+  - volumev3
+- project: openstack/aodh
+  api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
+  service_type: alarm
+  aliases:
+  - alarming
+- project: openstack/ceilometer
+  api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
+  service_type: meter
+  aliases:
+  - metering
+- project: openstack/panko
+  api_reference: http://docs.openstack.org/developer/panko/webapi/index.html
+  service_type: event
+  aliases:
+  - events
+- project: openstack/solum
+  api_reference: http://docs.openstack.org/developer/solum/develop_applications/webapi/index.html
+  service_type: application-deployment
+  aliases:
+  - application_deployment
+- project: openstack/tricircle
+  api_reference: http://docs.openstack.org/developer/tricircle/api_v1.html
+  service_type: multi-region-network-automation
+  aliases:
+  - tricircle
+- project: openstack/trove
+  api_reference: http://developer.openstack.org/api-ref/database/
+  service_type: database
+- project: openstack/zun
+  api_reference: https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source
+  service_type: application-container
+  aliases:
+  - container
+- project: openstack/vitrage
+  api_reference: http://docs.openstack.org/developer/vitrage/vitrage-api.html
+  service_type: root-cause-analysis
+  aliases:
+  - rca
+- project: openstack/tacker
+  api_reference: http://developer.openstack.org/api-ref/nfv-orchestration/
+  service_type: nfv-orchestration
