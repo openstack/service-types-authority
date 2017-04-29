@@ -1,18 +1,18 @@
 services:
-  identity:
-    project: openstack/keystone
-    # TODO(sdague): this should be an overall pointer to the service
-    # API, this is just a subset.
-    api_reference: http://developer.openstack.org/api-ref/identity/v3/index.html
-  compute:
-    project: openstack/nova
-    api_reference: http://developer.openstack.org/api-ref/compute/
-  image:
-    project: openstack/glance
-    api_reference: http://developer.openstack.org/api-ref/image/
-  load-balancer:
-    project: openstack/octavia
-    api_reference: http://developer.openstack.org/api-ref/load-balancer/
-  object-store:
-    project: openstack/swift
-    api_reference: http://developer.openstack.org/api-ref/object-storage/
+- service_type: identity
+  project: openstack/keystone
+  # TODO(sdague): this should be an overall pointer to the service
+  # API, this is just a subset.
+  api_reference: http://developer.openstack.org/api-ref/identity/v3/index.html
+- service_type: compute
+  project: openstack/nova
+  api_reference: http://developer.openstack.org/api-ref/compute/
+- service_type: image
+  project: openstack/glance
+  api_reference: http://developer.openstack.org/api-ref/image/
+- service_type: load-balancer
+  project: openstack/octavia
+  api_reference: http://developer.openstack.org/api-ref/load-balancer/
+- service_type: object-store
+  project: openstack/swift
+  api_reference: http://developer.openstack.org/api-ref/object-storage/

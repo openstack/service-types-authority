@@ -1,0 +1,5 @@
+.tox
+AUTHORS
+ChangeLog
+doc/build
+*egg-info

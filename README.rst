@@ -3,9 +3,9 @@ Service Types Authority
 =======================
 
 The following is a central authority for handing out service types to
-projects.
+projects for their services.
 
-OpenStack Projects with REST APIs must have a well known service type.
+Each OpenStack Service with a REST API must have a well known service type.
 The well known service type guarantees a documented API is available
 for that service. Users of this service can trust that it will be the
 same between different OpenStack environments.
@@ -14,6 +14,11 @@ Attributes
 ==========
 
 The following attributes are required for a service type registration:
+
+service-type (required)
+-----------------------
+
+The unique identifier for the service to be used in the service catalog.
 
 project (required)
 ------------------
@@ -44,7 +49,7 @@ Naming
 Service types should be:
 
 - English words
-- Be matched by the regex [a-z\-]+
+- Be matched by the regex ^[a-z][a-z-]+$
 - Be meaningful
 - Not use terms which are incredibly overloaded in OpenStack space
   (i.e. policy)

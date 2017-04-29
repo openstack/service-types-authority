@@ -1,0 +1,5 @@
+hacking
+jsonschema
+PyYAML>=3.10.0  # MIT
+oslosphinx>=4.7.0  # Apache-2.0
+sphinx>=1.5.1  # BSD

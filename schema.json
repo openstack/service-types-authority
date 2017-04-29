@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://specs.openstack.org/openstack/service-types-authority/_downloads/schema.json#",
+  "type": "object",
+  "required": ["services"],
+  "additionalProperties": false,
+  "properties": {
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/service"
+      }
+    }
+  },
+   "definitions":{
+      "service":{
+         "properties": {
+            "service_type": {
+               "type":"string",
+               "pattern":"^[a-z][a-z-]+$",
+               "description": "The unique identifier for the service to be used in the service catalog"
+            },
+            "project": {
+               "type":"string",
+               "description": "An OpenStack git project that contains the definition of the API"
+            },
+            "api_reference": {
+               "type":"string",
+               "format": "url",
+               "description": "A published API reference document for the API identified by this service type."
+            },
+            "description": {
+               "type":"string",
+               "description": "A short description about the service in question."
+            },
+            "aliases": {
+               "type": "array",
+               "items": {
+                 "type": "string",
+                 "pattern": "^[a-z]+$"
+               },
+               "description": "An ordered list of historical aliases for this service type."
+            }
+         },
+         "additionalProperties":false,
+         "required":[
+            "api_reference",
+            "project",
+            "service_type"
+         ]
+      }
+   }
+}
