@@ -10,6 +10,9 @@ services:
   image:
     project: openstack/glance
     api_reference: http://developer.openstack.org/api-ref/image/
+  load-balancer:
+    project: openstack/octavia
+    api_reference: http://developer.openstack.org/api-ref/load-balancer/
   object-store:
     project: openstack/swift
     api_reference: http://developer.openstack.org/api-ref/object-storage/
