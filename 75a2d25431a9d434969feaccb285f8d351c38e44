@@ -1,0 +1,17 @@
+Code-Review+1: Jay Pipes <jaypipes@gmail.com>
+Code-Review+1: Mike Perez <thingee@gmail.com>
+Code-Review+1: Ankur <ankur.gupta@intel.com>
+Code-Review+1: German Eichberger <German.eichberger@rackspace.com>
+Code-Review+1: Sindhu Devale <sindhu.devale@intel.com>
+Code-Review+1: Michael Johnson <johnsomor@gmail.com>
+Code-Review+1: Jean-Philippe Evrard <jean-philippe.evrard@rackspace.co.uk>
+Code-Review+2: Anne Gentle <annegentle@justwriteclick.com>
+Code-Review+1: Monty Taylor <mordred@inaugust.com>
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Workflow+1: Chris Dent <cdent@anticdent.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Sat, 29 Apr 2017 11:20:03 +0000
+Reviewed-on: https://review.openstack.org/434999
+Project: openstack/service-types-authority
+Branch: refs/heads/master
