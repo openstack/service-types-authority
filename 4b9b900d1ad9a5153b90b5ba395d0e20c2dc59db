@@ -1,0 +1,9 @@
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Workflow+1: Chris Dent <cdent@anticdent.org>
+Code-Review+1: Goutham Pacha Ravi <gouthampravi@gmail.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Thu, 04 May 2017 15:48:17 +0000
+Reviewed-on: https://review.openstack.org/461209
+Project: openstack/service-types-authority
+Branch: refs/heads/master
