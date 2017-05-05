@@ -28,6 +28,21 @@ def main():
     for error in validator.iter_errors(data):
         print(error.message)
         ret = 1
+    service_types = []
+    aliases = []
+    for service in data['services']:
+        service_types.append(service['service_type'])
+        if "aliases" in service:
+            for alias in service['aliases']:
+                if alias in aliases:
+                    print("Alias {alias} appears twice".format(alias=alias))
+                    ret = 1
+                aliases.append(alias)
+    for alias in aliases:
+        if alias in service_types:
+            print("Alias {alias} conflicts with a service_type".format(
+                alias=alias))
+            ret = 1
     return ret
 
 
