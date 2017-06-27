@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://specs.openstack.org/openstack/service-types-authority/_downloads/published-schema.json#",
+  "type": "object",
+  "required": ["services", "version", "sha", "forward", "reverse"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "DateTime based version in ISO Format (https://tools.ietf.org/html/rfc3339#section-5.6",
+      "format": "date-time"
+    },
+    "sha": {
+      "type": "string",
+      "description": "sha of the git commit from which the file was generated",
+      "pattern": "^[a-f0-9]{40}"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "https://specs.openstack.org/openstack/service-types-authority/_downloads/schema.json#/definitions/service"
+      }
+    },
+    "forward": {
+      "type": "object",
+      "description": "Mapping of official service-type to historical aliases",
+      "patternProperties": {
+        "^([a-z][a-z-]+[a-z]+|ec2-api)$": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Ordered list of historical aliases"
+        }
+      },
+      "additionalProperties": false
+    },
+    "reverse": {
+      "type": "object",
+      "description": "Reverse mapping of historical alias to official service-type",
+      "patternProperties": {
+        "^.*": {
+          "type": "string",
+          "pattern": "^([a-z][a-z-]+[a-z]+|ec2-api)$",
+          "description": "Official service-type"
+        }
+      }
+    }
+  }
+}
