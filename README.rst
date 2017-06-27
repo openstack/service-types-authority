@@ -5,7 +5,7 @@ Service Types Authority
 The following is a central authority for handing out service types to
 projects for their services.
 
-Each OpenStack Service with a REST API must have a well known service type.
+Each OpenStack service with a REST API must have a well known service type.
 The well known service type guarantees a documented API is available
 for that service. Users of this service can trust that it will be the
 same between different OpenStack environments.
@@ -71,13 +71,14 @@ Naming
 Service types should be:
 
 - English words
-- Be matched by the regex ^[a-z][a-z-]+$
-- Be meaningful
+- Match the regex ``^[a-z][a-z-]*[a-z]$``. As a special case, ``ec2-api`` is
+  also allowed.
+- Meaningful
 - Not use terms which are incredibly overloaded in OpenStack space
-  (i.e. policy)
-- A thing, not an action (i.e. load-balancer, not load-balancing)
-- Singular instead of plural (i.e. image, not images)
-- Unversioned (volume, not volumev2)
+  (e.g. policy)
+- A thing, not an action (e.g. load-balancer, not load-balancing)
+- Singular instead of plural (e.g. image, not images)
+- Unversioned (e.g. volume, not volumev2)
 
 Non Official Types in Service Catalog
 =====================================
