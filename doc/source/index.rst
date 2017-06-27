@@ -22,7 +22,7 @@ Publication
 -----------
 
 The information is also transformed into a JSON format and published to
-https://specs.openstack.org/service-types.json for ease of machine
+https://service-types.openstack.org/service-types.json for ease of machine
 interactions. The published format is different than the source format.
 
 The published format contains five keys.
