@@ -25,7 +25,7 @@
       "type": "object",
       "description": "Mapping of official service-type to historical aliases",
       "patternProperties": {
-        "^([a-z][a-z-]+[a-z]+|ec2-api)$": {
+        "^([a-z][a-z-]*[a-z]+|ec2-api)$": {
           "type": "array",
           "items": {
             "type": "string"
@@ -39,9 +39,9 @@
       "type": "object",
       "description": "Reverse mapping of historical alias to official service-type",
       "patternProperties": {
-        "^.*": {
+        "^.*$": {
           "type": "string",
-          "pattern": "^([a-z][a-z-]+[a-z]+|ec2-api)$",
+          "pattern": "^([a-z][a-z-]*[a-z]+|ec2-api)$",
           "description": "Official service-type"
         }
       }
