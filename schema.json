@@ -17,7 +17,7 @@
          "properties": {
             "service_type": {
                "type":"string",
-               "pattern":"^([a-z][a-z-]+[a-z]+|ec2-api)$",
+               "pattern":"^([a-z][a-z-]*[a-z]+|ec2-api)$",
                "description": "The unique identifier for the service to be used in the service catalog"
             },
             "project": {
