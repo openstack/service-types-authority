@@ -12,15 +12,30 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""Validate service-types.yaml; optionally generate service-types.json from it.
+
+Usage: python transform.py [-n]
+
+Flags:
+    -n    Only perform validation - do not generate service-types.json*
+
+If -n is not specified, two identical files will be created in pwd:
+  service-types.json
+  service-types.json.<version_timestamp>
+
+These represent the data in service-types.yaml according to the schema file
+published-schema.json.
+"""
 
 import datetime
 import json
-import os
 import subprocess
 import sys
 
 import jsonschema
 import yaml
+
+import validate
 
 
 class LocalResolver(jsonschema.RefResolver):
@@ -35,13 +50,13 @@ class LocalResolver(jsonschema.RefResolver):
 
     def resolve_remote(self, uri):
         if uri.startswith('https://specs.openstack.org'):
-            filename = os.path.split(uri)[-1]
+            # The uri arrives with fragment removed. We assume no querystring.
+            filename = uri.split('/')[-1]
             return json.load(open(filename, 'r'))
         return super(LocalResolver, self).resolve_remote(uri)
 
 
 def main():
-    ret = 0
     mapping = yaml.load(open('service-types.yaml', 'r'))
 
     mapping['version'] = datetime.datetime.utcnow().isoformat()
@@ -60,18 +75,16 @@ def main():
 
     schema = json.load(open('published-schema.json', 'r'))
     resolver = LocalResolver.from_schema(schema)
-    validator = jsonschema.Draft4Validator(schema, resolver=resolver)
-    for error in validator.iter_errors(mapping):
-        print(error.message)
-        ret = 1
 
-    if '-n' not in sys.argv:
+    valid = validate.validate_all(schema, mapping, resolver=resolver)
+
+    if valid and '-n' not in sys.argv:
         json.dump(mapping, open('service-types.json', 'w'), indent=2)
         versioned_file_name = 'service-types.json.{version}'.format(
             version=mapping['version'])
         json.dump(mapping, open(versioned_file_name, 'w'), indent=2)
 
-    return ret
+    return int(not valid)
 
 
 if __name__ == '__main__':

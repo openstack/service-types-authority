@@ -20,14 +20,21 @@ import jsonschema
 import yaml
 
 
-def main():
-    ret = 0
-    schema = json.load(open('schema.json', 'r'))
-    validator = jsonschema.Draft4Validator(schema)
-    data = yaml.load(open('service-types.yaml', 'r'))
+def validate_schema(schema, data, resolver=None):
+    """Validate mapping against schema using the given resolver.
+
+    :return: An iterator over messages for any errors encountered.
+    """
+    validator = jsonschema.Draft4Validator(schema, resolver=resolver)
     for error in validator.iter_errors(data):
-        print(error.message)
-        ret = 1
+        yield error.message
+
+
+def validate_unique_tokens(data):
+    """Ensure service types and aliases are all unique tokens.
+
+    :return: An iterator over messages for any errors encountered.
+    """
     service_types = []
     aliases = []
     for service in data['services']:
@@ -35,16 +42,33 @@ def main():
         if "aliases" in service:
             for alias in service['aliases']:
                 if alias in aliases:
-                    print("Alias {alias} appears twice".format(alias=alias))
-                    ret = 1
+                    yield "Alias '{alias}' appears twice".format(alias=alias)
                 aliases.append(alias)
     for alias in aliases:
         if alias in service_types:
-            print("Alias {alias} conflicts with a service_type".format(
-                alias=alias))
-            ret = 1
+            yield "Alias '{alias}' conflicts with a service_type".format(
+                alias=alias)
+
+
+def validate_all(schema, data, resolver=None):
+    """Runs all validators, printing any errors to stdout.
+
+    :return: True if all checks passed; False if any checks failed.
+    """
+    ret = True
+    for msg in validate_schema(schema, data, resolver=resolver):
+        print(msg)
+        ret = False
+    for msg in validate_unique_tokens(data):
+        print(msg)
+        ret = False
     return ret
 
+
+def main():
+    schema = json.load(open('schema.json', 'r'))
+    data = yaml.load(open('service-types.yaml', 'r'))
+    return int(not validate_all(schema, data))
 
 if __name__ == '__main__':
     sys.exit(main())
