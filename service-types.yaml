@@ -149,3 +149,7 @@ services:
 - service_type: monitoring-events
   project: monasca-events-api
   api_reference: https://developer.openstack.org/api-ref/monitoring-events-api/
+- service_type: placement
+  project: nova
+  api_reference: https://developer.openstack.org/api-ref/placement/
+  secondary: true
