@@ -131,3 +131,6 @@ services:
 - service_type: nfv-orchestration
   project: openstack/tacker
   api_reference: http://developer.openstack.org/api-ref/nfv-orchestration/
+- service_type: network
+  project: openstack/neutron
+  api_reference: http://developer.openstack.org/api-ref/networking/
