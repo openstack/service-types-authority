@@ -1,0 +1,11 @@
+Code-Review+2: Doug Hellmann <doug@doughellmann.com>
+Code-Review+2: Brant Knudson <blk@acm.org>
+Code-Review+1: Eric Fried <efried@us.ibm.com>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Workflow+1: Monty Taylor <mordred@inaugust.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 05 Jul 2017 22:39:17 +0000
+Reviewed-on: https://review.openstack.org/478541
+Project: openstack/service-types-authority
+Branch: refs/heads/master
