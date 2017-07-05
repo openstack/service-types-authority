@@ -134,3 +134,4 @@ services:
 - service_type: network
   project: openstack/neutron
   api_reference: http://developer.openstack.org/api-ref/networking/
+  api_reference_project: openstack/neutron-lib

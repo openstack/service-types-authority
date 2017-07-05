@@ -37,6 +37,12 @@ api_reference (required)
 A published API reference document for the API identified by this
 service type.
 
+api_reference_project (optional)
+--------------------------------
+
+An OpenStack git project holding the source code for the project's API
+reference.
+
 description (optional)
 ----------------------
 
