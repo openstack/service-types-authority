@@ -135,3 +135,9 @@ services:
   project: openstack/neutron
   api_reference: http://developer.openstack.org/api-ref/networking/
   api_reference_project: openstack/neutron-lib
+- service_type: backup
+  project: openstack/freezer-api
+  api_reference: http://developer.openstack.org/api-ref/backup/
+- service_type: monitoring-log-api
+  project: openstack/monasca-log-api
+  api_reference: http://developer.openstack.org/api-ref/monitoring-log-api/
