@@ -23,19 +23,25 @@ import sys
 import requests
 
 HTTP_LOCATION = 'https://service-types.openstack.org/service-types.json'
+SPECS_BASE = 'http://specs.openstack.org/openstack'
 OUTDIR = 'publish'
 HEADER = '''<div class="section" id="service-types-authority">
 <h1>OpenStack Service Types Authority Data</h1>
 <p>For more information on the files, see:
-    <a href='http://specs.openstack.org/openstack/service-types-authority/'>
-    http://specs.openstack.org/openstack/service-types-authority/</a></p>
+    <a href='{specs_base}/service-types-authority'>
+    {specs_base}/service-types-authority</a></p>
 <p>For more information on using the information, see:
-    <a href='http://specs.openstack.org/openstack/api-wg/'>
-    http://specs.openstack.org/openstack/api-wg/</a></p>
+    <a href='{specs_base}/api-wg/'>
+    {specs_base}/api-wg/</a></p>
 <p>The canonical source data is kept in git at:
     <a href='https://git.openstack.org/cgit/openstack/service-types-authority'>
     https://git.openstack.org/cgit/openstack/service-types-authority</a></p>
+<p>The canonical YAML source can be found at:
+    <a href='{specs_base}/service-types-authority/#service-data'>
+    {specs_base}/service-types-authority/#service-data
+    </a></p>
 </div>
+<h2>Latest file is <a href="./{latest_file}">{latest_file}</a></h2>
 '''
 
 
@@ -85,13 +91,12 @@ def main():
                 outdir=OUTDIR))
         return 1
 
-    # It's fine to always copy json schema and yaml source
-    # The source yaml file can change in ways that don't affect the json output
+    # It's fine to always copy the json schema
     # The schema can update - descriptions can be cleaned up, format regexes
     # can get fixed.
     # schema updates that don't work with the existing file won't land (we
     # gate on them).
-    to_copy = glob.glob('*schema.json') + glob.glob('*.yaml')
+    to_copy = glob.glob('*schema.json')
     should_publish, latest_version = should_publish_data()
     if should_publish:
         to_copy += glob.glob('service-types.json*')
@@ -104,10 +109,8 @@ def main():
 
     latest_file = 'service-types.json.{version}'.format(version=latest_version)
     with open('publish/HEADER.html', 'w') as header:
-        header.write(HEADER)
-        header.write(
-            '<h2>Latest file is <a href="./{fn}">{fn}</a></h2>\n'.format(
-                fn=latest_file))
+        header.write(HEADER.format(latest_file=latest_file,
+                                   specs_base=SPECS_BASE))
     return 0
 
 
