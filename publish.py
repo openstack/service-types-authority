@@ -106,7 +106,7 @@ def main():
     with open('publish/HEADER.html', 'w') as header:
         header.write(HEADER)
         header.write(
-            '<h2>Latest file is <a href="{fn}">{fn}</a></h2>\n'.format(
+            '<h2>Latest file is <a href="./{fn}">{fn}</a></h2>\n'.format(
                 fn=latest_file))
     return 0
 
