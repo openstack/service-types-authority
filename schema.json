@@ -29,6 +29,10 @@
                "format": "url",
                "description": "A published API reference document for the API identified by this service type."
             },
+            "api_reference_project": {
+               "type":"string",
+               "description": "Project where API reference is found, if not the same as the main project"
+            },
             "description": {
                "type":"string",
                "description": "A short description about the service in question."
