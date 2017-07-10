@@ -13,11 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import json
-import sys
-
 import jsonschema
-import yaml
 
 
 def validate_schema(schema, data, resolver=None):
@@ -63,12 +59,3 @@ def validate_all(schema, data, resolver=None):
         print(msg)
         ret = False
     return ret
-
-
-def main():
-    schema = json.load(open('schema.json', 'r'))
-    data = yaml.load(open('service-types.yaml', 'r'))
-    return int(not validate_all(schema, data))
-
-if __name__ == '__main__':
-    sys.exit(main())
