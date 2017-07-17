@@ -1,143 +1,143 @@
 services:
 - service_type: identity
-  project: openstack/keystone
+  project: keystone
   api_reference: http://developer.openstack.org/api-ref/identity/
 - service_type: compute
-  project: openstack/nova
+  project: nova
   api_reference: http://developer.openstack.org/api-ref/compute/
 - service_type: image
-  project: openstack/glance
+  project: glance
   api_reference: http://developer.openstack.org/api-ref/image/
 - service_type: load-balancer
-  project: openstack/octavia
+  project: octavia
   api_reference: http://developer.openstack.org/api-ref/load-balancer/
 - service_type: object-store
-  project: openstack/swift
+  project: swift
   api_reference: http://developer.openstack.org/api-ref/object-storage/
 - service_type: resource-cluster
-  project: openstack/senlin
+  project: senlin
   api_reference: http://developer.openstack.org/api-ref/clustering/
   aliases:
   - clustering
 - service_type: data-processing
-  project: openstack/sahara
+  project: sahara
   api_reference: http://developer.openstack.org/api-ref/data-processing/
 - service_type: baremetal
-  project: openstack/ironic
+  project: ironic
   api_reference: http://developer.openstack.org/api-ref/baremetal/
 - service_type: baremetal-introspection
-  project: openstack/ironic-inspector
+  project: ironic-inspector
   api_reference: http://docs.openstack.org/developer/ironic-inspector/http-api.html
 - service_type: key-manager
-  project: openstack/barbican
+  project: barbican
   api_reference: http://developer.openstack.org/api-ref/key-manager/
 - service_type: ec2-api
-  project: openstack/ec2-api
+  project: ec2-api
   api_reference: http://developer.openstack.org/api-ref/ec2-api/
 - service_type: resource-optimization
-  project: openstack/watcher
+  project: watcher
   api_reference: https://docs.openstack.org/developer/watcher/webapi/v1.html
   aliases:
   - infra-optim
 - service_type: message
-  project: openstack/zaqar
+  project: zaqar
   api_reference: http://developer.openstack.org/api-ref/messaging/
   aliases:
   - messaging
 - service_type: application-catalog
-  project: openstack/murano
+  project: murano
   api_reference: http://developer.openstack.org/api-ref/application-catalog/
 - service_type: container-infrastructure-management
-  project: openstack/magnum
+  project: magnum
   api_reference: http://developer.openstack.org/api-ref/container-infrastructure-management/
   aliases:
   - container-infrastructure
 - service_type: search
-  project: openstack/searchlight
+  project: searchlight
   api_reference: http://developer.openstack.org/api-ref/search/
 - service_type: dns
-  project: openstack/designate
+  project: designate
   api_reference: http://developer.openstack.org/api-ref/dns/
 - service_type: workflow
-  project: openstack/mistral
+  project: mistral
   api_reference: http://docs.openstack.org/developer/mistral/developer/webapi/index.html
   aliases:
   - workflowv2
 - service_type: rating
-  project: openstack/cloudkitty
+  project: cloudkitty
   api_reference: http://docs.openstack.org/developer/cloudkitty/webapi/root.html
 - service_type: operator-policy
-  project: openstack/congress
+  project: congress
   api_reference: http://docs.openstack.org/developer/congress/api.html
   aliases:
   - policy
 - service_type: shared-file-system
-  project: openstack/manila
+  project: manila
   api_reference: http://developer.openstack.org/api-ref/shared-file-systems/
   aliases:
   - sharev2
   - share
 - service_type: data-protection-orchestration
-  project: openstack/karbor
+  project: karbor
   api_reference: https://developer.openstack.org/api-ref/data-protection-orchestration/
 - service_type: orchestration
-  project: openstack/heat
+  project: heat
   api_reference: http://developer.openstack.org/api-ref/orchestration/
 - service_type: block-storage
-  project: openstack/cinder
+  project: cinder
   api_reference: http://developer.openstack.org/api-ref/block-storage/
   aliases:
   - volume
   - volumev2
   - volumev3
 - service_type: alarm
-  project: openstack/aodh
+  project: aodh
   api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
   aliases:
   - alarming
 - service_type: meter
-  project: openstack/ceilometer
+  project: ceilometer
   api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
   aliases:
   - metering
 - service_type: event
-  project: openstack/panko
+  project: panko
   api_reference: http://docs.openstack.org/developer/panko/webapi/index.html
   aliases:
   - events
 - service_type: application-deployment
-  project: openstack/solum
+  project: solum
   api_reference: http://docs.openstack.org/developer/solum/develop_applications/webapi/index.html
   aliases:
   - application_deployment
 - service_type: multi-region-network-automation
-  project: openstack/tricircle
+  project: tricircle
   api_reference: http://docs.openstack.org/developer/tricircle/api_v1.html
   aliases:
   - tricircle
 - service_type: database
-  project: openstack/trove
+  project: trove
   api_reference: http://developer.openstack.org/api-ref/database/
 - service_type: application-container
-  project: openstack/zun
+  project: zun
   api_reference: https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source
   aliases:
   - container
 - service_type: root-cause-analysis
-  project: openstack/vitrage
+  project: vitrage
   api_reference: http://docs.openstack.org/developer/vitrage/vitrage-api.html
   aliases:
   - rca
 - service_type: nfv-orchestration
-  project: openstack/tacker
+  project: tacker
   api_reference: http://developer.openstack.org/api-ref/nfv-orchestration/
 - service_type: network
-  project: openstack/neutron
+  project: neutron
   api_reference: http://developer.openstack.org/api-ref/networking/
-  api_reference_project: openstack/neutron-lib
+  api_reference_project: neutron-lib
 - service_type: backup
-  project: openstack/freezer-api
+  project: freezer-api
   api_reference: http://developer.openstack.org/api-ref/backup/
 - service_type: monitoring-log-api
-  project: openstack/monasca-log-api
+  project: monasca-log-api
   api_reference: http://developer.openstack.org/api-ref/monitoring-log-api/

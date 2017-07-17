@@ -23,19 +23,18 @@ The unique identifier for the service to be used in the service catalog.
 project (required)
 ------------------
 
-An OpenStack git project that contains the definition of the API
-claimed by this service type. This is assumed to be a code repository,
-though if multiple projects are implementing the same API they can
-choose to have this be an API definition repository instead.
-
-Project is a singleton and defines the reference point for the API in
-question.
+The name of the OpenStack project that contains the definition of the API
+claimed by this service type. OpenStack project source code is found in
+`https://git.openstack.org/openstack/{project}`. If the API reference docs are
+not found in the project repository, the `api_reference_project` field can be
+used to indicate the repository in which they are found.
 
 api_reference (required)
 ------------------------
 
 A published API reference document for the API identified by this
-service type.
+service type. By default this should be
+`http://developer.openstack.org/api-ref/{service-type}/`.
 
 api_reference_project (optional)
 --------------------------------

@@ -22,7 +22,8 @@
             },
             "project": {
                "type":"string",
-               "description": "An OpenStack git project that contains the definition of the API"
+               "pattern":"^([a-z][a-z-]*[a-z]+|ec2-api)$",
+               "description": "The OpenStack project name that contains the definition of the API"
             },
             "api_reference": {
                "type":"string",
