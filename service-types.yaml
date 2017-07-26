@@ -138,6 +138,11 @@ services:
 - service_type: backup
   project: freezer-api
   api_reference: http://developer.openstack.org/api-ref/backup/
-- service_type: monitoring-log-api
+- service_type: monitoring-logging
   project: monasca-log-api
   api_reference: http://developer.openstack.org/api-ref/monitoring-log-api/
+  aliases:
+  - monitoring-log-api
+- service_type: monitoring
+  project: monasca-api
+  api_reference: http://developer.openstack.org/api-ref/monitoring/
