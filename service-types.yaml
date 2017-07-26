@@ -87,9 +87,9 @@ services:
   project: cinder
   api_reference: http://developer.openstack.org/api-ref/block-storage/
   aliases:
-  - volume
-  - volumev2
   - volumev3
+  - volumev2
+  - volume
 - service_type: alarm
   project: aodh
   api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
