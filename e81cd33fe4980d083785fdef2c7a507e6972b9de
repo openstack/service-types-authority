@@ -1,0 +1,10 @@
+Code-Review+2: Monty Taylor <mordred@inaugust.com>
+Code-Review+2: Sean Dague <sean@dague.net>
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Workflow+1: Chris Dent <cdent@anticdent.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Tue, 01 Aug 2017 13:38:20 +0000
+Reviewed-on: https://review.openstack.org/487570
+Project: openstack/service-types-authority
+Branch: refs/heads/master
