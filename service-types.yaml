@@ -146,3 +146,6 @@ services:
 - service_type: monitoring
   project: monasca-api
   api_reference: http://developer.openstack.org/api-ref/monitoring/
+- service_type: monitoring-events
+  project: monasca-events-api
+  api_reference: http://developer.openstack.org/api-ref/monitoring-events-api/
