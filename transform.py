@@ -79,10 +79,13 @@ def main():
     valid = validate.validate_all(schema, mapping, resolver=resolver)
 
     if valid and '-n' not in sys.argv:
-        json.dump(mapping, open('service-types.json', 'w'), indent=2)
-        versioned_file_name = 'service-types.json.{version}'.format(
+        output = json.dumps(mapping, indent=2)
+        output.replace(' \n', '\n')
+        unversioned_filename = 'service-types.json'
+        versioned_filename = 'service-types.json.{version}'.format(
             version=mapping['version'])
-        json.dump(mapping, open(versioned_file_name, 'w'), indent=2)
+        for filename in (unversioned_filename, versioned_filename):
+            open(filename, 'w').write(output)
 
     return int(not valid)
 
