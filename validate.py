@@ -27,12 +27,13 @@ def validate_schema(schema, data, resolver=None):
 
 
 def validate_unique_tokens(data):
-    """Ensure service types and aliases are all unique tokens.
+    """Ensure service types, aliases and primary projects are all unique.
 
     :return: An iterator over messages for any errors encountered.
     """
     service_types = []
     aliases = []
+    projects = []
     for service in data['services']:
         service_types.append(service['service_type'])
         if "aliases" in service:
@@ -40,6 +41,13 @@ def validate_unique_tokens(data):
                 if alias in aliases:
                     yield "Alias '{alias}' appears twice".format(alias=alias)
                 aliases.append(alias)
+        if service.get('secondary', False):
+            continue
+        if service['project'] in projects:
+            yield "'{service}' is duplicate service from '{project}'".format(
+                service=service['service_type'],
+                project=service['project'])
+        projects.append(service['project'])
     for alias in aliases:
         if alias in service_types:
             yield "Alias '{alias}' conflicts with a service_type".format(

@@ -45,6 +45,42 @@
           "description": "Official service-type"
         }
       }
+    },
+    "primary_service_by_project": {
+      "type": "object",
+      "description": "Mapping of project name to the service data for the primary service",
+      "patternProperties": {
+        "^.*$": {
+          "$ref": "https://specs.openstack.org/openstack/service-types-authority/_downloads/schema.json#/definitions/service"
+        }
+      }
+    },
+    "all_types_by_service_type": {
+      "type": "object",
+      "description": "Mapping of official service-type to official type and aliases",
+      "patternProperties": {
+        "^([a-z][a-z-]*[a-z]+|ec2-api)$": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Ordered list of official type and historical aliases."
+        }
+      },
+      "additionalProperties": false
+    },
+    "service_types_by_project": {
+      "type": "object",
+      "description": "Mapping of project name to list of service-types for the project",
+      "patternProperties": {
+        "^([a-z][a-z-]*[a-z]+|ec2-api)$": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of service types associated with a project"
+        }
+      }
     }
   }
 }

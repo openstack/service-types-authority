@@ -64,14 +64,29 @@ def main():
         ['git', 'rev-parse', 'HEAD']).decode('utf-8').strip()
     mapping['forward'] = {}
     mapping['reverse'] = {}
+    mapping['primary_service_by_project'] = {}
+    mapping['all_types_by_service_type'] = {}
+    mapping['service_types_by_project'] = {}
 
     for service in mapping['services']:
         service_type = service['service_type']
+        mapping['all_types_by_service_type'][service_type] = [service_type]
         if 'aliases' in service:
             aliases = service['aliases']
             mapping['forward'][service_type] = aliases
+            mapping['all_types_by_service_type'][service_type].extend(aliases)
             for alias in aliases:
                 mapping['reverse'][alias] = service_type
+        for key in ('project', 'api_reference_project'):
+            name = service.get(key)
+            if name:
+                if not service.get('secondary', False):
+                    mapping['primary_service_by_project'][name] = service
+                project_types = mapping['service_types_by_project'].get(
+                    name, [])
+                if service_type not in project_types:
+                    project_types.append(service_type)
+                mapping['service_types_by_project'][name] = project_types
 
     schema = json.load(open('published-schema.json', 'r'))
     resolver = LocalResolver.from_schema(schema)
