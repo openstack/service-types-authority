@@ -61,7 +61,7 @@ def main():
 
     mapping['version'] = datetime.datetime.utcnow().isoformat()
     mapping['sha'] = subprocess.check_output(
-        ['git', 'rev-parse', 'HEAD']).strip()
+        ['git', 'rev-parse', 'HEAD']).decode('utf-8').strip()
     mapping['forward'] = {}
     mapping['reverse'] = {}
 
