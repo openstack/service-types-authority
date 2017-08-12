@@ -44,6 +44,10 @@
                  "type": "string"
                },
                "description": "An ordered list of historical aliases for this service type."
+            },
+            "secondary": {
+                "type": "boolean",
+                "description": "Is this a secondary service for a project?"
             }
          },
          "additionalProperties":false,

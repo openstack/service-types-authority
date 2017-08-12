@@ -70,6 +70,14 @@ ordered list of known fallback names. If an API consumer cannot find a given
 list of ``aliases`` here, in the order they are given, in order to find
 the requested endpoint.
 
+secondary (optional)
+--------------------
+
+If secondary is set and is true, the project is not the primary service people
+associate with the project codename. For instance, the ``nova`` project has
+two services, ``compute`` and ``placement``. ``compute`` is the primary
+project. ``placement`` is secondary.
+
 Naming
 ======
 
