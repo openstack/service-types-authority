@@ -1,0 +1,11 @@
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Code-Review+2: Monty Taylor <mordred@inaugust.com>
+Code-Review+1: XueFeng Liu <liu.xuefeng1@zte.com.cn>
+Code-Review+1: Qiming Teng <tengqim@cn.ibm.com>
+Workflow+1: Eric Fried <efried@us.ibm.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 16 Aug 2017 23:49:18 +0000
+Reviewed-on: https://review.openstack.org/484011
+Project: openstack/service-types-authority
+Branch: refs/heads/master
