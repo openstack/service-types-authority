@@ -81,17 +81,21 @@ project. ``placement`` is secondary.
 Naming
 ======
 
-Service types should be:
+.. note:: Established service types need not be forcefully retrofitted
+          to conform to these guidelines. For this reason you may see
+          entries such as ``ec2-api`` (contains a digit) or
+          ``clustering`` (an action, not a thing).
 
-- English words
-- Match the regex ``^[a-z][a-z-]*[a-z]$``. As a special case, ``ec2-api`` is
-  also allowed.
-- Meaningful
+New service type names should:
+
+- Be English words
+- Match the regex ``^[a-z][a-z-]*[a-z]$``.
+- Be meaningful
 - Not use terms which are incredibly overloaded in OpenStack space
   (e.g. policy)
-- A thing, not an action (e.g. load-balancer, not load-balancing)
-- Singular instead of plural (e.g. image, not images)
-- Unversioned (e.g. volume, not volumev2)
+- Be a thing, not an action (e.g. load-balancer, not load-balancing)
+- Be singular instead of plural (e.g. image, not images)
+- Be unversioned (e.g. volume, not volumev2)
 
 Non Official Types in Service Catalog
 =====================================
