@@ -14,11 +14,11 @@ services:
 - service_type: object-store
   project: swift
   api_reference: https://developer.openstack.org/api-ref/object-storage/
-- service_type: clustering
+- service_type: resource-cluster
   project: senlin
   api_reference: https://developer.openstack.org/api-ref/clustering/
   aliases:
-  - resource-cluster
+  - clustering
 - service_type: data-processing
   project: sahara
   api_reference: https://developer.openstack.org/api-ref/data-processing/
