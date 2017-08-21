@@ -38,6 +38,9 @@ import yaml
 import validate
 
 
+API_REF_FMT = 'https://developer.openstack.org/api-ref/{service}/'
+
+
 class LocalResolver(jsonschema.RefResolver):
     """Local Resolver class that uses the spec from this repo.
 
@@ -87,6 +90,9 @@ def main():
                 if service_type not in project_types:
                     project_types.append(service_type)
                 mapping['service_types_by_project'][name] = project_types
+        # Generate api_reference if not specified
+        if not service.get('api_reference'):
+            service['api_reference'] = API_REF_FMT.format(service=service_type)
 
     schema = json.load(open('published-schema.json', 'r'))
     resolver = LocalResolver.from_schema(schema)

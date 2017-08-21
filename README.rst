@@ -33,8 +33,8 @@ api_reference (required)
 ------------------------
 
 A published API reference document for the API identified by this
-service type. By default this should be
-`http://developer.openstack.org/api-ref/{service-type}/`.
+service type. If not specified in the source yaml file, it will be generated
+as `http://developer.openstack.org/api-ref/{service-type}/`.
 
 api_reference_project (optional)
 --------------------------------

@@ -1,39 +1,29 @@
 services:
 - service_type: identity
   project: keystone
-  api_reference: https://developer.openstack.org/api-ref/identity/
 - service_type: compute
   project: nova
-  api_reference: https://developer.openstack.org/api-ref/compute/
 - service_type: image
   project: glance
-  api_reference: https://developer.openstack.org/api-ref/image/
 - service_type: load-balancer
   project: octavia
-  api_reference: https://developer.openstack.org/api-ref/load-balancer/
 - service_type: object-store
   project: swift
-  api_reference: https://developer.openstack.org/api-ref/object-storage/
 - service_type: clustering
   project: senlin
-  api_reference: https://developer.openstack.org/api-ref/clustering/
   aliases:
   - resource-cluster
 - service_type: data-processing
   project: sahara
-  api_reference: https://developer.openstack.org/api-ref/data-processing/
 - service_type: baremetal
   project: ironic
-  api_reference: https://developer.openstack.org/api-ref/baremetal/
 - service_type: baremetal-introspection
   project: ironic-inspector
   api_reference: https://docs.openstack.org/developer/ironic-inspector/http-api.html
 - service_type: key-manager
   project: barbican
-  api_reference: https://developer.openstack.org/api-ref/key-manager/
 - service_type: ec2-api
   project: ec2-api
-  api_reference: https://developer.openstack.org/api-ref/ec2-api/
 - service_type: resource-optimization
   project: watcher
   api_reference: https://docs.openstack.org/developer/watcher/webapi/v1.html
@@ -41,23 +31,18 @@ services:
   - infra-optim
 - service_type: message
   project: zaqar
-  api_reference: https://developer.openstack.org/api-ref/messaging/
   aliases:
   - messaging
 - service_type: application-catalog
   project: murano
-  api_reference: https://developer.openstack.org/api-ref/application-catalog/
 - service_type: container-infrastructure-management
   project: magnum
-  api_reference: https://developer.openstack.org/api-ref/container-infrastructure-management/
   aliases:
   - container-infrastructure
 - service_type: search
   project: searchlight
-  api_reference: https://developer.openstack.org/api-ref/search/
 - service_type: dns
   project: designate
-  api_reference: https://developer.openstack.org/api-ref/dns/
 - service_type: workflow
   project: mistral
   api_reference: https://docs.openstack.org/developer/mistral/developer/webapi/index.html
@@ -73,19 +58,15 @@ services:
   - policy
 - service_type: shared-file-system
   project: manila
-  api_reference: https://developer.openstack.org/api-ref/shared-file-systems/
   aliases:
   - sharev2
   - share
 - service_type: data-protection-orchestration
   project: karbor
-  api_reference: https://developer.openstack.org/api-ref/data-protection-orchestration/
 - service_type: orchestration
   project: heat
-  api_reference: https://developer.openstack.org/api-ref/orchestration/
 - service_type: block-storage
   project: cinder
-  api_reference: https://developer.openstack.org/api-ref/block-storage/
   aliases:
   - volumev3
   - volumev2
@@ -117,7 +98,6 @@ services:
   - tricircle
 - service_type: database
   project: trove
-  api_reference: https://developer.openstack.org/api-ref/database/
 - service_type: application-container
   project: zun
   api_reference: https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source
@@ -130,26 +110,19 @@ services:
   - rca
 - service_type: nfv-orchestration
   project: tacker
-  api_reference: https://developer.openstack.org/api-ref/nfv-orchestration/
 - service_type: network
   project: neutron
-  api_reference: https://developer.openstack.org/api-ref/networking/
   api_reference_project: neutron-lib
 - service_type: backup
   project: freezer-api
-  api_reference: https://developer.openstack.org/api-ref/backup/
 - service_type: monitoring-logging
   project: monasca-log-api
-  api_reference: https://developer.openstack.org/api-ref/monitoring-log-api/
   aliases:
   - monitoring-log-api
 - service_type: monitoring
   project: monasca-api
-  api_reference: https://developer.openstack.org/api-ref/monitoring/
 - service_type: monitoring-events
   project: monasca-events-api
-  api_reference: https://developer.openstack.org/api-ref/monitoring-events-api/
 - service_type: placement
   project: nova
-  api_reference: https://developer.openstack.org/api-ref/placement/
   secondary: true
