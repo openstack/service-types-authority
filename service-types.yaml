@@ -100,7 +100,6 @@ services:
   project: trove
 - service_type: application-container
   project: zun
-  api_reference: https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source
   aliases:
   - container
 - service_type: root-cause-analysis
