@@ -13,10 +13,13 @@ services:
   project: senlin
   aliases:
   - resource-cluster
+  - cluster
 - service_type: data-processing
   project: sahara
 - service_type: baremetal
   project: ironic
+  aliases:
+  - bare-metal
 - service_type: baremetal-introspection
   project: ironic-inspector
   api_reference: https://docs.openstack.org/developer/ironic-inspector/http-api.html
@@ -71,6 +74,7 @@ services:
   - volumev3
   - volumev2
   - volume
+  - block-store
 - service_type: alarm
   project: aodh
   api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
@@ -81,6 +85,7 @@ services:
   api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
   aliases:
   - metering
+  - telemetry
 - service_type: event
   project: panko
   api_reference: https://docs.openstack.org/developer/panko/webapi/index.html
