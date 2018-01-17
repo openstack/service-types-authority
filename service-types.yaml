@@ -125,3 +125,7 @@ services:
 - service_type: placement
   project: nova
   secondary: true
+- service_type: instance-ha
+  aliases:
+  - ha
+  project: masakari
