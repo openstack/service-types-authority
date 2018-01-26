@@ -1,0 +1,18 @@
+- project:
+    check:
+      jobs:
+        - service-types-authority-tox-publish
+    gate:
+      jobs:
+        - service-types-authority-tox-publish
+
+
+- job:
+    name: service-types-authority-tox-publish
+    parent: tox
+    description: |
+      Run tests for service-types-authority project.
+
+      Uses tox with the ``publish`` environment.
+    vars:
+      tox_envlist: publish
