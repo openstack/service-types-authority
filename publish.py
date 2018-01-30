@@ -24,7 +24,7 @@ import requests
 
 HTTP_LOCATION = 'https://service-types.openstack.org/service-types.json'
 SPECS_BASE = 'http://specs.openstack.org/openstack'
-OUTDIR = 'publish'
+OUTDIR = 'doc/build/html'
 HEADER = '''<div class="section" id="service-types-authority">
 <h1>OpenStack Service Types Authority Data</h1>
 <p>For more information on the files, see:
@@ -108,7 +108,7 @@ def main():
         shutil.copyfile(filename, os.path.join(OUTDIR, filename))
 
     latest_file = 'service-types.json.{version}'.format(version=latest_version)
-    with open('publish/HEADER.html', 'w') as header:
+    with open('{outdir}/HEADER.html'.format(outdir=OUTDIR), 'w') as header:
         header.write(HEADER.format(latest_file=latest_file,
                                    specs_base=SPECS_BASE))
     return 0
