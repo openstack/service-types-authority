@@ -129,3 +129,5 @@ services:
   aliases:
   - ha
   project: masakari
+- service_type: reservation
+  project: blazar
