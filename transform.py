@@ -60,7 +60,7 @@ class LocalResolver(jsonschema.RefResolver):
 
 
 def main():
-    mapping = yaml.load(open('service-types.yaml', 'r'))
+    mapping = yaml.safe_load(open('service-types.yaml', 'r'))
 
     mapping['version'] = datetime.datetime.utcnow().isoformat()
     mapping['sha'] = subprocess.check_output(
