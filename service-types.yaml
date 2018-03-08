@@ -136,3 +136,5 @@ services:
   project: masakari
 - service_type: reservation
   project: blazar
+- service_type: function-engine
+  project: qinling
