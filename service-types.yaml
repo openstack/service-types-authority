@@ -42,6 +42,7 @@ services:
   project: magnum
   aliases:
   - container-infrastructure
+  - container-infra
 - service_type: search
   project: searchlight
 - service_type: dns
