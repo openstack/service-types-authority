@@ -1,12 +1,24 @@
 - project:
+    templates:
+      - openstack-specs-jobs
     check:
       jobs:
         - service-types-authority-tox-publish
+        - openstack-tox-pep8
     gate:
       jobs:
         - service-types-authority-tox-publish
 
 
+        - openstack-tox-pep8
+    post:
+      jobs:
+        - propose-updates:
+            vars:
+              update_target: os-service-types
+            dependencies:
+              - publish-service-types-authority
+        - publish-service-types-authority
 - job:
     name: service-types-authority-tox-publish
     parent: tox
