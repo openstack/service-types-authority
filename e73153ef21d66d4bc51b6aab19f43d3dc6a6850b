@@ -1,0 +1,11 @@
+Code-Review+2: Sean McGinnis <sean.mcginnis@gmail.com>
+Code-Review+2: Emilien Macchi <emilien@redhat.com>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Code-Review+2: Thierry Carrez <thierry@openstack.org>
+Workflow+1: Thierry Carrez <thierry@openstack.org>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Thu, 23 Aug 2018 14:20:37 +0000
+Reviewed-on: https://review.openstack.org/593705
+Project: openstack/service-types-authority
+Branch: refs/heads/master
