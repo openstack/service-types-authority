@@ -8,8 +8,6 @@
     gate:
       jobs:
         - service-types-authority-tox-publish
-
-
         - openstack-tox-pep8
     post:
       jobs:
