@@ -129,8 +129,7 @@ services:
 - service_type: monitoring-events
   project: monasca-events-api
 - service_type: placement
-  project: nova
-  secondary: true
+  project: placement
 - service_type: instance-ha
   aliases:
   - ha
