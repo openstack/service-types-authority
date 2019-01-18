@@ -138,3 +138,6 @@ services:
   project: blazar
 - service_type: function-engine
   project: qinling
+- service_type: accelerator
+  project: cyborg
+  api_reference: https://docs.openstack.org/cyborg/latest/admin/api.html
