@@ -25,6 +25,7 @@ services:
   api_reference: https://docs.openstack.org/developer/ironic-inspector/http-api.html
 - service_type: key-manager
   project: barbican
+  api_reference: https://docs.openstack.org/barbican/latest/api/
 - service_type: ec2-api
   project: ec2-api
 - service_type: resource-optimization
