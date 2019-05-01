@@ -22,14 +22,13 @@ services:
   - bare-metal
 - service_type: baremetal-introspection
   project: ironic-inspector
-  api_reference: https://docs.openstack.org/developer/ironic-inspector/http-api.html
+  api_reference: https://docs.openstack.org/ironic-inspector/latest/user/http-api.html
 - service_type: key-manager
   project: barbican
 - service_type: ec2-api
   project: ec2-api
 - service_type: resource-optimization
   project: watcher
-  api_reference: https://docs.openstack.org/developer/watcher/webapi/v1.html
   aliases:
   - infra-optim
 - service_type: message
@@ -49,15 +48,15 @@ services:
   project: designate
 - service_type: workflow
   project: mistral
-  api_reference: https://docs.openstack.org/developer/mistral/developer/webapi/index.html
+  api_reference: https://docs.openstack.org/mistral/latest/api/index.html
   aliases:
   - workflowv2
 - service_type: rating
   project: cloudkitty
-  api_reference: https://docs.openstack.org/developer/cloudkitty/webapi/root.html
+  api_reference: https://docs.openstack.org/cloudkitty/latest/api-reference/index.html
 - service_type: operator-policy
   project: congress
-  api_reference: https://docs.openstack.org/developer/congress/api.html
+  api_reference: https://docs.openstack.org/congress/latest/user/api.html
   aliases:
   - policy
 - service_type: shared-file-system
@@ -94,12 +93,12 @@ services:
   - events
 - service_type: application-deployment
   project: solum
-  api_reference: https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html
+  api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
   aliases:
   - application_deployment
 - service_type: multi-region-network-automation
   project: tricircle
-  api_reference: https://docs.openstack.org/developer/tricircle/api_v1.html
+  api_reference: https://docs.openstack.org/tricircle/latest/admin/api_v1.html
   aliases:
   - tricircle
 - service_type: database
@@ -110,7 +109,7 @@ services:
   - container
 - service_type: root-cause-analysis
   project: vitrage
-  api_reference: https://docs.openstack.org/developer/vitrage/vitrage-api.html
+  api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
   aliases:
   - rca
 - service_type: nfv-orchestration
