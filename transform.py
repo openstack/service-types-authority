@@ -38,7 +38,7 @@ import yaml
 import validate
 
 
-API_REF_FMT = 'https://developer.openstack.org/api-ref/{service}/'
+API_REF_FMT = 'https://docs.openstack.org/api-ref/{service}/'
 
 
 class LocalResolver(jsonschema.RefResolver):
