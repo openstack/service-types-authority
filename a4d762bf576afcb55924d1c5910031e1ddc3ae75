@@ -1,0 +1,9 @@
+Code-Review+2: Eric Fried <openstack@fried.cc>
+Code-Review+2: Chris Dent <cdent@anticdent.org>
+Workflow+1: Chris Dent <cdent@anticdent.org>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Tue, 27 Aug 2019 10:08:52 +0000
+Reviewed-on: https://review.opendev.org/678134
+Project: openstack/service-types-authority
+Branch: refs/heads/master
