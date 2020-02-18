@@ -9,17 +9,16 @@
       jobs:
         - service-types-authority-tox-publish
         - openstack-tox-pep8
-    post:
+    promote:
       jobs:
-        - publish-service-types-authority
+        - promote-service-types-authority
+
 - job:
     name: service-types-authority-tox-publish
-    parent: tox
+    parent: opendev-tox-docs
     description: |
-      Run tests for service-types-authority project.
+      Publishes files of service-types-authority project.
 
       Uses tox with the ``publish`` environment.
-    success-url: html/
-    post-run: playbooks/fetch-publish-output.yaml
     vars:
       tox_envlist: publish
