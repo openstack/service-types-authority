@@ -34,8 +34,8 @@ HEADER = '''<div class="section" id="service-types-authority">
     <a href='{specs_base}/api-wg/'>
     {specs_base}/api-wg/</a></p>
 <p>The canonical source data is kept in git at:
-    <a href='https://git.openstack.org/cgit/openstack/service-types-authority'>
-    https://git.openstack.org/cgit/openstack/service-types-authority</a></p>
+    <a href='https://opendev.org/openstack/service-types-authority'>
+    https://opendev.org/openstack/service-types-authority</a></p>
 <p>The canonical YAML source can be found at:
     <a href='{specs_base}/service-types-authority/#service-data'>
     {specs_base}/service-types-authority/#service-data
