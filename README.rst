@@ -25,7 +25,7 @@ project (required)
 
 The name of the OpenStack project that contains the definition of the API
 claimed by this service type. OpenStack project source code is found in
-`https://git.openstack.org/openstack/{project}`. If the API reference docs are
+`https://opendev.org/openstack/{project}`. If the API reference docs are
 not found in the project repository, the `api_reference_project` field can be
 used to indicate the repository in which they are found.
 
