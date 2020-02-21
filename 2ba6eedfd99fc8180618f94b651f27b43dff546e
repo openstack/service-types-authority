@@ -1,0 +1,9 @@
+Code-Review+2: Eric Fried <openstack@fried.cc>
+Code-Review+2: Monty Taylor <mordred@inaugust.com>
+Workflow+1: Monty Taylor <mordred@inaugust.com>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Fri, 21 Feb 2020 20:56:24 +0000
+Reviewed-on: https://review.opendev.org/709232
+Project: openstack/service-types-authority
+Branch: refs/heads/master
