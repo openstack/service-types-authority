@@ -35,9 +35,14 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # openstackdocstheme options
-repository_name = 'openstack/service-types-authority'
-bug_project = ''
-bug_tag = ''
+openstackdocs_repo_name = 'openstack/service-types-authority'
+openstackdocs_auto_name = False
+openstackdocs_auto_version = False
+openstackdocs_bug_project = ''
+openstackdocs_bug_tag = ''
+
+version = ''
+release = ''
 
 # General information about the project.
 project = u'Service Types Authority'
@@ -74,7 +79,7 @@ add_module_names = False
 show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = []
