@@ -140,7 +140,6 @@ services:
   project: qinling
 - service_type: accelerator
   project: cyborg
-  api_reference: https://docs.openstack.org/cyborg/latest/admin/api.html
 - service_type: admin-logic
   project: adjutant
   aliases:
