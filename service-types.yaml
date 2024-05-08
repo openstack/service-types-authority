@@ -110,7 +110,6 @@ services:
   - container
 - service_type: log-management
   project: venus
-  api_reference: https://docs.openstack.org/venus/latest/
 - service_type: root-cause-analysis
   project: vitrage
   api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
