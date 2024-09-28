@@ -14,8 +14,10 @@ services:
   aliases:
   - resource-cluster
   - cluster
+  retired: true
 - service_type: data-processing
   project: sahara
+  retired: true
 - service_type: baremetal
   project: ironic
   aliases:
@@ -28,6 +30,7 @@ services:
   api_reference: https://docs.openstack.org/barbican/latest/api/
 - service_type: ec2-api
   project: ec2-api
+  retired: true
 - service_type: resource-optimization
   project: watcher
   aliases:
@@ -38,6 +41,7 @@ services:
   - messaging
 - service_type: application-catalog
   project: murano
+  retired: true
 - service_type: container-infrastructure-management
   project: magnum
   aliases:
@@ -45,6 +49,7 @@ services:
   - container-infra
 - service_type: search
   project: searchlight
+  retired: true
 - service_type: dns
   project: designate
 - service_type: workflow
@@ -60,6 +65,7 @@ services:
   api_reference: https://docs.openstack.org/congress/latest/user/api.html
   aliases:
   - policy
+  retired: true
 - service_type: shared-file-system
   project: manila
   aliases:
@@ -67,6 +73,7 @@ services:
   - share
 - service_type: data-protection-orchestration
   project: karbor
+  retired: true
 - service_type: orchestration
   project: heat
 - service_type: block-storage
@@ -87,21 +94,25 @@ services:
   aliases:
   - metering
   - telemetry
+  retired: true
 - service_type: event
   project: panko
   api_reference: https://docs.openstack.org/developer/panko/webapi/index.html
   aliases:
   - events
+  retired: true
 - service_type: application-deployment
   project: solum
   api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
   aliases:
   - application_deployment
+  retired: true
 - service_type: multi-region-network-automation
   project: tricircle
   api_reference: https://docs.openstack.org/tricircle/latest/admin/api_v1.html
   aliases:
   - tricircle
+  retired: true
 - service_type: database
   project: trove
 - service_type: application-container
@@ -110,6 +121,7 @@ services:
   - container
 - service_type: log-management
   project: venus
+  retired: true
 - service_type: root-cause-analysis
   project: vitrage
   api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
@@ -140,6 +152,7 @@ services:
   project: blazar
 - service_type: function-engine
   project: qinling
+  retired: true
 - service_type: accelerator
   project: cyborg
 - service_type: admin-logic
