@@ -46,6 +46,11 @@
         }
       }
     },
+    "retired": {
+      "type": "boolean",
+      "description": "Whether the project that provides the API has been retired.",
+      "default": false
+    },
     "primary_service_by_project": {
       "type": "object",
       "description": "Mapping of project name to the service data for the primary service",

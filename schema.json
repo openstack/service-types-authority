@@ -48,6 +48,10 @@
             "secondary": {
                 "type": "boolean",
                 "description": "Is this a secondary service for a project?"
+            },
+            "retired": {
+                "type": "boolean",
+                "description": "Is the API retired/obsolete?"
             }
          },
          "additionalProperties":false,
