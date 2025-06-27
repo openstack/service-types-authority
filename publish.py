@@ -26,7 +26,7 @@ import requests
 HTTP_LOCATION = 'https://service-types.openstack.org/service-types.json'
 SPECS_BASE = 'http://specs.openstack.org/openstack'
 OUTDIR = 'doc/build/html'
-HEADER = '''<div class="section" id="service-types-authority">
+HEADER = """<div class="section" id="service-types-authority">
 <h1>OpenStack Service Types Authority Data</h1>
 <p>For more information on the files, see:
     <a href='{specs_base}/service-types-authority'>
@@ -43,7 +43,7 @@ HEADER = '''<div class="section" id="service-types-authority">
     </a></p>
 </div>
 <h2>Latest file is <a href="./{latest_file}">{latest_file}</a></h2>
-'''
+"""
 
 
 def is_data_equal(old, new):
@@ -53,8 +53,9 @@ def is_data_equal(old, new):
     # normal equality on the service dicts and reverse and forward mappings.
     if old.keys() != new.keys():
         return False
-    if (sorted(old['services'], key=operator.itemgetter('service_type')) !=
-            sorted(new['services'], key=operator.itemgetter('service_type'))):
+    if sorted(
+        old['services'], key=operator.itemgetter('service_type')
+    ) != sorted(new['services'], key=operator.itemgetter('service_type')):
         return False
     if old['reverse'] != new['reverse']:
         return False
@@ -64,15 +65,17 @@ def is_data_equal(old, new):
 
 
 def should_publish_data():
-    current_contents = json.load(open('service-types.json', 'r'))
+    current_contents = json.load(open('service-types.json'))
 
     try:
         response = requests.get(HTTP_LOCATION)
         response.raise_for_status()
         existing_contents = response.json()
     except (requests.HTTPError, requests.ConnectionError) as e:
-        print("Failed to fetch current service-types.json. Assuming data"
-              " needs to be published. Error: {error}".format(error=str(e)))
+        print(
+            'Failed to fetch current service-types.json. Assuming data'
+            f' needs to be published. Error: {str(e)}'
+        )
         return (True, current_contents['version'])
 
     # If our contents are not the same as published, we need to publish
@@ -92,9 +95,7 @@ def main():
     if not os.path.exists(OUTDIR):
         os.makedirs(OUTDIR)
     elif not os.path.isdir(OUTDIR):
-        print(
-            "{outdir} exists but is not a directory. Aborting!".format(
-                outdir=OUTDIR))
+        print(f'{OUTDIR} exists but is not a directory. Aborting!')
         return 1
 
     # It's fine to always copy the json schema
@@ -107,16 +108,19 @@ def main():
     if should_publish:
         to_copy += glob.glob('service-types.json*')
     else:
-        print("Data in existing file matches {version} data."
-              " Not publishing".format(version=latest_version))
+        print(
+            f'Data in existing file matches {latest_version} data.'
+            ' Not publishing'
+        )
 
     for filename in to_copy:
         shutil.copyfile(filename, os.path.join(OUTDIR, filename))
 
-    latest_file = 'service-types.json.{version}'.format(version=latest_version)
-    with open('{outdir}/HEADER.html'.format(outdir=OUTDIR), 'w') as header:
-        header.write(HEADER.format(latest_file=latest_file,
-                                   specs_base=SPECS_BASE))
+    latest_file = f'service-types.json.{latest_version}'
+    with open(f'{OUTDIR}/HEADER.html', 'w') as header:
+        header.write(
+            HEADER.format(latest_file=latest_file, specs_base=SPECS_BASE)
+        )
     return 0
 
 

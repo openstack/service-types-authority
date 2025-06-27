@@ -36,22 +36,21 @@ def validate_unique_tokens(data):
     projects = []
     for service in data['services']:
         service_types.append(service['service_type'])
-        if "aliases" in service:
+        if 'aliases' in service:
             for alias in service['aliases']:
                 if alias in aliases:
-                    yield "Alias '{alias}' appears twice".format(alias=alias)
+                    yield f"Alias '{alias}' appears twice"
                 aliases.append(alias)
         if service.get('secondary', False):
             continue
         if service['project'] in projects:
             yield "'{service}' is duplicate service from '{project}'".format(
-                service=service['service_type'],
-                project=service['project'])
+                service=service['service_type'], project=service['project']
+            )
         projects.append(service['project'])
     for alias in aliases:
         if alias in service_types:
-            yield "Alias '{alias}' conflicts with a service_type".format(
-                alias=alias)
+            yield f"Alias '{alias}' conflicts with a service_type"
 
 
 def validate_all(schema, data, registry):

@@ -38,11 +38,12 @@ def create_local_registry():
     changes tricky. Instead of fetching from the already published spec,
     use the local one so that changes can be self-gating.
     """
+
     def local_retrieve(uri: str):
         if uri.startswith('https://specs.openstack.org'):
             # The URI arrives with fragment removed. We assume no querystring.
             filename = uri.split('/')[-1]
-            with open(filename, 'r') as f:
+            with open(filename) as f:
                 return referencing.Resource.from_contents(json.load(f))
         # We shouldn't have any external URIs. Scream bloody murder if someone
         # tries.
@@ -79,7 +80,7 @@ def main():
     )
     args = parser.parse_args()
 
-    mapping = yaml.safe_load(open('service-types.yaml', 'r'))
+    mapping = yaml.safe_load(open('service-types.yaml'))
 
     # we are using a TZ-naive timestamp for legacy reasons, but we should
     # probably revisit this as TZ-naive timestamps are a menace
@@ -88,8 +89,11 @@ def main():
     now = datetime.datetime.now(datetime.UTC).replace(tzinfo=None)
 
     mapping['version'] = now.isoformat()
-    mapping['sha'] = subprocess.check_output(
-        ['git', 'rev-parse', 'HEAD']).decode('utf-8').strip()
+    mapping['sha'] = (
+        subprocess.check_output(['git', 'rev-parse', 'HEAD'])
+        .decode('utf-8')
+        .strip()
+    )
     mapping['forward'] = {}
     mapping['reverse'] = {}
     mapping['primary_service_by_project'] = {}
@@ -111,7 +115,8 @@ def main():
                 if not service.get('secondary', False):
                     mapping['primary_service_by_project'][name] = service
                 project_types = mapping['service_types_by_project'].get(
-                    name, [])
+                    name, []
+                )
                 if service_type not in project_types:
                     project_types.append(service_type)
                 mapping['service_types_by_project'][name] = project_types
@@ -119,7 +124,7 @@ def main():
         if not service.get('api_reference'):
             service['api_reference'] = API_REF_FMT.format(service=service_type)
 
-    schema = json.load(open('published-schema.json', 'r'))
+    schema = json.load(open('published-schema.json'))
     registry = create_local_registry()
 
     valid = validate.validate_all(schema, mapping, registry=registry)
@@ -129,7 +134,8 @@ def main():
         output.replace(' \n', '\n')
         unversioned_filename = 'service-types.json'
         versioned_filename = 'service-types.json.{version}'.format(
-            version=mapping['version'])
+            version=mapping['version']
+        )
         for filename in (unversioned_filename, versioned_filename):
             open(filename, 'w').write(output)
 
