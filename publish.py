@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import argparse
 import glob
 import json
 import operator
@@ -83,6 +84,11 @@ def should_publish_data():
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Generate HTML documents for publication'
+    )
+    parser.parse_args()
+
     if not os.path.exists(OUTDIR):
         os.makedirs(OUTDIR)
     elif not os.path.isdir(OUTDIR):

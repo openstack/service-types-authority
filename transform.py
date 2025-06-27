@@ -12,21 +12,10 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Validate service-types.yaml; optionally generate service-types.json from it.
 
-Usage: python transform.py [-n]
+"""Validate and optionally generate the services-types documents."""
 
-Flags:
-    -n    Only perform validation - do not generate service-types.json*
-
-If -n is not specified, two identical files will be created in pwd:
-  service-types.json
-  service-types.json.<version_timestamp>
-
-These represent the data in service-types.yaml according to the schema file
-published-schema.json.
-"""
-
+import argparse
 import datetime
 import json
 import subprocess
@@ -63,6 +52,33 @@ def create_local_registry():
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description=(
+            'Validate service-types.yaml; optionally generating '
+            'service-types.json from it.'
+        ),
+        epilog=(
+            'If -n is not specified, two identical files will be created in '
+            'pwd:\n'
+            '\n'
+            '  service-types.json\n'
+            '  service-types.json.<version_timestamp>\n'
+            '\n'
+            'These represent the data in service-types.yaml according to the '
+            'schema file\n'
+            'published-schema.json.'
+        ),
+    )
+    parser.add_argument(
+        '-n',
+        action='store_false',
+        dest='enable_generation',
+        default=True,
+        help='only perform validation - do not generate service-types.json',
+    )
+    args = parser.parse_args()
+
     mapping = yaml.safe_load(open('service-types.yaml', 'r'))
 
     # we are using a TZ-naive timestamp for legacy reasons, but we should
@@ -108,7 +124,7 @@ def main():
 
     valid = validate.validate_all(schema, mapping, registry=registry)
 
-    if valid and '-n' not in sys.argv:
+    if valid and args.enable_generation:
         output = json.dumps(mapping, indent=2, sort_keys=True)
         output.replace(' \n', '\n')
         unversioned_filename = 'service-types.json'
