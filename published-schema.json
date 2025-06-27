@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "id": "https://specs.openstack.org/openstack/service-types-authority/_downloads/published-schema.json#",
   "type": "object",
   "required": ["services", "version", "sha", "forward", "reverse"],

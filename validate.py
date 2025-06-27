@@ -21,7 +21,7 @@ def validate_schema(schema, data, registry):
 
     :return: An iterator over messages for any errors encountered.
     """
-    validator = jsonschema.Draft4Validator(schema, registry=registry)
+    validator = jsonschema.Draft202012Validator(schema, registry=registry)
     for error in validator.iter_errors(data):
         yield error.message
 
