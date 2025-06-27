@@ -32,37 +32,46 @@ import json
 import subprocess
 import sys
 
-import jsonschema
+import referencing
 import yaml
 
 import validate
 
-
 API_REF_FMT = 'https://docs.openstack.org/api-ref/{service}/'
 
 
-class LocalResolver(jsonschema.RefResolver):
-    """Local Resolver class that uses the spec from this repo.
+def create_local_registry():
+    """Create a referencing registry that uses local spec files.
 
-    This repo contains the spec, and the specs are used against data in
+    This registry contains the spec, and the specs are used against data in
     gating jobs to validate consistency. However, the specs use URIs to
     refer to each other for external consumption, which makes gating
     changes tricky. Instead of fetching from the already published spec,
     use the local one so that changes can be self-gating.
     """
-
-    def resolve_remote(self, uri):
+    def local_retrieve(uri: str):
         if uri.startswith('https://specs.openstack.org'):
-            # The uri arrives with fragment removed. We assume no querystring.
+            # The URI arrives with fragment removed. We assume no querystring.
             filename = uri.split('/')[-1]
-            return json.load(open(filename, 'r'))
-        return super(LocalResolver, self).resolve_remote(uri)
+            with open(filename, 'r') as f:
+                return referencing.Resource.from_contents(json.load(f))
+        # We shouldn't have any external URIs. Scream bloody murder if someone
+        # tries.
+        raise referencing.exceptions.NoSuchResource(ref=uri)
+
+    return referencing.Registry(retrieve=local_retrieve)
 
 
 def main():
     mapping = yaml.safe_load(open('service-types.yaml', 'r'))
 
-    mapping['version'] = datetime.datetime.utcnow().isoformat()
+    # we are using a TZ-naive timestamp for legacy reasons, but we should
+    # probably revisit this as TZ-naive timestamps are a menace
+    #
+    # https://nerderati.com/a-python-epoch-timestamp-timezone-trap/
+    now = datetime.datetime.now(datetime.UTC).replace(tzinfo=None)
+
+    mapping['version'] = now.isoformat()
     mapping['sha'] = subprocess.check_output(
         ['git', 'rev-parse', 'HEAD']).decode('utf-8').strip()
     mapping['forward'] = {}
@@ -95,9 +104,9 @@ def main():
             service['api_reference'] = API_REF_FMT.format(service=service_type)
 
     schema = json.load(open('published-schema.json', 'r'))
-    resolver = LocalResolver.from_schema(schema)
+    registry = create_local_registry()
 
-    valid = validate.validate_all(schema, mapping, resolver=resolver)
+    valid = validate.validate_all(schema, mapping, registry=registry)
 
     if valid and '-n' not in sys.argv:
         output = json.dumps(mapping, indent=2, sort_keys=True)

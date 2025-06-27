@@ -16,12 +16,12 @@
 import jsonschema
 
 
-def validate_schema(schema, data, resolver=None):
-    """Validate mapping against schema using the given resolver.
+def validate_schema(schema, data, registry):
+    """Validate mapping against schema using the given registry.
 
     :return: An iterator over messages for any errors encountered.
     """
-    validator = jsonschema.Draft4Validator(schema, resolver=resolver)
+    validator = jsonschema.Draft4Validator(schema, registry=registry)
     for error in validator.iter_errors(data):
         yield error.message
 
@@ -54,13 +54,13 @@ def validate_unique_tokens(data):
                 alias=alias)
 
 
-def validate_all(schema, data, resolver=None):
+def validate_all(schema, data, registry):
     """Runs all validators, printing any errors to stdout.
 
     :return: True if all checks passed; False if any checks failed.
     """
     ret = True
-    for msg in validate_schema(schema, data, resolver=resolver):
+    for msg in validate_schema(schema, data, registry):
         print(msg)
         ret = False
     for msg in validate_unique_tokens(data):
