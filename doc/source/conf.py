@@ -57,7 +57,7 @@ latex_documents = [
     ),
 ]
 
-# -- Options for openstackdocsthem ---------------------------------------------
+# -- Options for openstackdocstheme --------------------------------------------
 
 openstackdocs_repo_name = 'openstack/service-types-authority'
 openstackdocs_auto_name = False
