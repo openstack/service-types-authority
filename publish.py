@@ -65,7 +65,8 @@ def is_data_equal(old, new):
 
 
 def should_publish_data():
-    current_contents = json.load(open('service-types.json'))
+    with open('service-types.json') as fh:
+        current_contents = json.load(fh)
 
     try:
         response = requests.get(HTTP_LOCATION)
@@ -73,8 +74,9 @@ def should_publish_data():
         existing_contents = response.json()
     except (requests.HTTPError, requests.ConnectionError) as e:
         print(
-            'Failed to fetch current service-types.json. Assuming data'
-            f' needs to be published. Error: {str(e)}'
+            f'Failed to fetch current service-types.json. Assuming data '
+            f'needs to be published. Error: {str(e)}',
+            file=sys.stderr,
         )
         return (True, current_contents['version'])
 
@@ -95,7 +97,10 @@ def main():
     if not os.path.exists(OUTDIR):
         os.makedirs(OUTDIR)
     elif not os.path.isdir(OUTDIR):
-        print(f'{OUTDIR} exists but is not a directory. Aborting!')
+        print(
+            f'{OUTDIR} exists but is not a directory. Aborting!',
+            file=sys.stderr,
+        )
         return 1
 
     # It's fine to always copy the json schema
@@ -109,8 +114,9 @@ def main():
         to_copy += glob.glob('service-types.json*')
     else:
         print(
-            f'Data in existing file matches {latest_version} data.'
-            ' Not publishing'
+            f'Data in existing file matches {latest_version} data. '
+            f'Not publishing',
+            file=sys.stderr,
         )
 
     for filename in to_copy:

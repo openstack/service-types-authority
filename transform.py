@@ -43,8 +43,8 @@ def create_local_registry():
         if uri.startswith('https://specs.openstack.org'):
             # The URI arrives with fragment removed. We assume no querystring.
             filename = uri.split('/')[-1]
-            with open(filename) as f:
-                return referencing.Resource.from_contents(json.load(f))
+            with open(filename) as fh:
+                return referencing.Resource.from_contents(json.load(fh))
         # We shouldn't have any external URIs. Scream bloody murder if someone
         # tries.
         raise referencing.exceptions.NoSuchResource(ref=uri)
@@ -80,7 +80,8 @@ def main():
     )
     args = parser.parse_args()
 
-    mapping = yaml.safe_load(open('service-types.yaml'))
+    with open('service-types.yaml') as fh:
+        mapping = yaml.safe_load(fh)
 
     # we are using a TZ-naive timestamp for legacy reasons, but we should
     # probably revisit this as TZ-naive timestamps are a menace
@@ -124,7 +125,9 @@ def main():
         if not service.get('api_reference'):
             service['api_reference'] = API_REF_FMT.format(service=service_type)
 
-    schema = json.load(open('published-schema.json'))
+    with open('published-schema.json') as fh:
+        schema = json.load(fh)
+
     registry = create_local_registry()
 
     valid = validate.validate_all(schema, mapping, registry=registry)
@@ -133,11 +136,10 @@ def main():
         output = json.dumps(mapping, indent=2, sort_keys=True)
         output.replace(' \n', '\n')
         unversioned_filename = 'service-types.json'
-        versioned_filename = 'service-types.json.{version}'.format(
-            version=mapping['version']
-        )
+        versioned_filename = f'service-types.json.{mapping["version"]}'
         for filename in (unversioned_filename, versioned_filename):
-            open(filename, 'w').write(output)
+            with open(filename, 'w') as fh:
+                fh.write(output)
 
     return int(not valid)
 

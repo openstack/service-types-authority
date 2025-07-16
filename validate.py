@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
+
 import jsonschema
 
 
@@ -44,8 +46,9 @@ def validate_unique_tokens(data):
         if service.get('secondary', False):
             continue
         if service['project'] in projects:
-            yield "'{service}' is duplicate service from '{project}'".format(
-                service=service['service_type'], project=service['project']
+            yield (
+                f"'{service['service_type']}' duplicates service from "
+                f"'{service['project']}'"
             )
         projects.append(service['project'])
     for alias in aliases:
@@ -54,15 +57,15 @@ def validate_unique_tokens(data):
 
 
 def validate_all(schema, data, registry):
-    """Runs all validators, printing any errors to stdout.
+    """Runs all validators, printing any errors to stderr.
 
     :return: True if all checks passed; False if any checks failed.
     """
     ret = True
     for msg in validate_schema(schema, data, registry):
-        print(msg)
+        print(msg, file=sys.stderr)
         ret = False
     for msg in validate_unique_tokens(data):
-        print(msg)
+        print(msg, file=sys.stderr)
         ret = False
     return ret
