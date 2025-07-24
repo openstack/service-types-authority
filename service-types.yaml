@@ -101,6 +101,9 @@ services:
   aliases:
   - events
   retired: true
+- service_type: metric-storage
+  project: aetos
+  api_reference: https://docs.openstack.org/aetos/latest/contributor/api.html
 - service_type: application-deployment
   project: solum
   api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
