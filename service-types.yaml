@@ -130,6 +130,7 @@ services:
   api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
   aliases:
   - rca
+  retired: true
 - service_type: nfv-orchestration
   project: tacker
 - service_type: network
@@ -141,10 +142,13 @@ services:
   project: monasca-log-api
   aliases:
   - monitoring-log-api
+  retired: true
 - service_type: monitoring
   project: monasca-api
+  retired: true
 - service_type: monitoring-events
   project: monasca-events-api
+  retired: true
 - service_type: placement
   project: placement
 - service_type: instance-ha
