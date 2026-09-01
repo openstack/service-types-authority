@@ -1,168 +1,169 @@
+---
 services:
-- service_type: identity
-  project: keystone
-- service_type: compute
-  project: nova
-- service_type: image
-  project: glance
-- service_type: load-balancer
-  project: octavia
-- service_type: object-store
-  project: swift
-- service_type: clustering
-  project: senlin
-  aliases:
-  - resource-cluster
-  - cluster
-  retired: true
-- service_type: data-processing
-  project: sahara
-  retired: true
-- service_type: baremetal
-  project: ironic
-  aliases:
-  - bare-metal
-- service_type: baremetal-introspection
-  project: ironic-inspector
-  api_reference: https://docs.openstack.org/ironic-inspector/latest/user/http-api.html
-- service_type: key-manager
-  project: barbican
-  api_reference: https://docs.openstack.org/barbican/latest/api/
-- service_type: ec2-api
-  project: ec2-api
-  retired: true
-- service_type: resource-optimization
-  project: watcher
-  aliases:
-  - infra-optim
-- service_type: message
-  project: zaqar
-  aliases:
-  - messaging
-- service_type: application-catalog
-  project: murano
-  retired: true
-- service_type: container-infrastructure-management
-  project: magnum
-  aliases:
-  - container-infrastructure
-  - container-infra
-- service_type: search
-  project: searchlight
-  retired: true
-- service_type: dns
-  project: designate
-- service_type: workflow
-  project: mistral
-  api_reference: https://docs.openstack.org/mistral/latest/api/index.html
-  aliases:
-  - workflowv2
-- service_type: rating
-  project: cloudkitty
-  api_reference: https://docs.openstack.org/cloudkitty/latest/api-reference/index.html
-- service_type: operator-policy
-  project: congress
-  api_reference: https://docs.openstack.org/congress/latest/user/api.html
-  aliases:
-  - policy
-  retired: true
-- service_type: shared-file-system
-  project: manila
-  aliases:
-  - sharev2
-  - share
-- service_type: data-protection-orchestration
-  project: karbor
-  retired: true
-- service_type: orchestration
-  project: heat
-- service_type: block-storage
-  project: cinder
-  aliases:
-  - volumev3
-  - volumev2
-  - volume
-  - block-store
-- service_type: alarm
-  project: aodh
-  api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
-  aliases:
-  - alarming
-- service_type: meter
-  project: ceilometer
-  api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
-  aliases:
-  - metering
-  - telemetry
-  retired: true
-- service_type: event
-  project: panko
-  api_reference: https://docs.openstack.org/developer/panko/webapi/index.html
-  aliases:
-  - events
-  retired: true
-- service_type: metric-storage
-  project: aetos
-  api_reference: https://docs.openstack.org/aetos/latest/contributor/api.html
-- service_type: application-deployment
-  project: solum
-  api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
-  aliases:
-  - application_deployment
-  retired: true
-- service_type: multi-region-network-automation
-  project: tricircle
-  api_reference: https://docs.openstack.org/tricircle/latest/admin/api_v1.html
-  aliases:
-  - tricircle
-  retired: true
-- service_type: database
-  project: trove
-- service_type: application-container
-  project: zun
-  aliases:
-  - container
-- service_type: log-management
-  project: venus
-  retired: true
-- service_type: root-cause-analysis
-  project: vitrage
-  api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
-  aliases:
-  - rca
-  retired: true
-- service_type: nfv-orchestration
-  project: tacker
-- service_type: network
-  project: neutron
-  api_reference_project: neutron-lib
-- service_type: backup
-  project: freezer-api
-- service_type: monitoring-logging
-  project: monasca-log-api
-  aliases:
-  - monitoring-log-api
-  retired: true
-- service_type: monitoring
-  project: monasca-api
-  retired: true
-- service_type: monitoring-events
-  project: monasca-events-api
-  retired: true
-- service_type: placement
-  project: placement
-- service_type: instance-ha
-  aliases:
-  - ha
-  project: masakari
-- service_type: reservation
-  project: blazar
-- service_type: function-engine
-  project: qinling
-  retired: true
-- service_type: accelerator
-  project: cyborg
-- service_type: admin-logic
-  project: adjutant
-  aliases:
-  - registration
+  - service_type: identity
+    project: keystone
+  - service_type: compute
+    project: nova
+  - service_type: image
+    project: glance
+  - service_type: load-balancer
+    project: octavia
+  - service_type: object-store
+    project: swift
+  - service_type: clustering
+    project: senlin
+    aliases:
+      - resource-cluster
+      - cluster
+    retired: true
+  - service_type: data-processing
+    project: sahara
+    retired: true
+  - service_type: baremetal
+    project: ironic
+    aliases:
+      - bare-metal
+  - service_type: baremetal-introspection
+    project: ironic-inspector
+    api_reference: https://docs.openstack.org/ironic-inspector/latest/user/http-api.html
+  - service_type: key-manager
+    project: barbican
+    api_reference: https://docs.openstack.org/barbican/latest/api/
+  - service_type: ec2-api
+    project: ec2-api
+    retired: true
+  - service_type: resource-optimization
+    project: watcher
+    aliases:
+      - infra-optim
+  - service_type: message
+    project: zaqar
+    aliases:
+      - messaging
+  - service_type: application-catalog
+    project: murano
+    retired: true
+  - service_type: container-infrastructure-management
+    project: magnum
+    aliases:
+      - container-infrastructure
+      - container-infra
+  - service_type: search
+    project: searchlight
+    retired: true
+  - service_type: dns
+    project: designate
+  - service_type: workflow
+    project: mistral
+    api_reference: https://docs.openstack.org/mistral/latest/api/index.html
+    aliases:
+      - workflowv2
+  - service_type: rating
+    project: cloudkitty
+    api_reference: https://docs.openstack.org/cloudkitty/latest/api-reference/index.html
+  - service_type: operator-policy
+    project: congress
+    api_reference: https://docs.openstack.org/congress/latest/user/api.html
+    aliases:
+      - policy
+    retired: true
+  - service_type: shared-file-system
+    project: manila
+    aliases:
+      - sharev2
+      - share
+  - service_type: data-protection-orchestration
+    project: karbor
+    retired: true
+  - service_type: orchestration
+    project: heat
+  - service_type: block-storage
+    project: cinder
+    aliases:
+      - volumev3
+      - volumev2
+      - volume
+      - block-store
+  - service_type: alarm
+    project: aodh
+    api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
+    aliases:
+      - alarming
+  - service_type: meter
+    project: ceilometer
+    api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
+    aliases:
+      - metering
+      - telemetry
+    retired: true
+  - service_type: event
+    project: panko
+    api_reference: https://docs.openstack.org/developer/panko/webapi/index.html
+    aliases:
+      - events
+    retired: true
+  - service_type: metric-storage
+    project: aetos
+    api_reference: https://docs.openstack.org/aetos/latest/contributor/api.html
+  - service_type: application-deployment
+    project: solum
+    api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
+    aliases:
+      - application_deployment
+    retired: true
+  - service_type: multi-region-network-automation
+    project: tricircle
+    api_reference: https://docs.openstack.org/tricircle/latest/admin/api_v1.html
+    aliases:
+      - tricircle
+    retired: true
+  - service_type: database
+    project: trove
+  - service_type: application-container
+    project: zun
+    aliases:
+      - container
+  - service_type: log-management
+    project: venus
+    retired: true
+  - service_type: root-cause-analysis
+    project: vitrage
+    api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
+    aliases:
+      - rca
+    retired: true
+  - service_type: nfv-orchestration
+    project: tacker
+  - service_type: network
+    project: neutron
+    api_reference_project: neutron-lib
+  - service_type: backup
+    project: freezer-api
+  - service_type: monitoring-logging
+    project: monasca-log-api
+    aliases:
+      - monitoring-log-api
+    retired: true
+  - service_type: monitoring
+    project: monasca-api
+    retired: true
+  - service_type: monitoring-events
+    project: monasca-events-api
+    retired: true
+  - service_type: placement
+    project: placement
+  - service_type: instance-ha
+    aliases:
+      - ha
+    project: masakari
+  - service_type: reservation
+    project: blazar
+  - service_type: function-engine
+    project: qinling
+    retired: true
+  - service_type: accelerator
+    project: cyborg
+  - service_type: admin-logic
+    project: adjutant
+    aliases:
+      - registration
