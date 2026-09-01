@@ -4,6 +4,8 @@ services:
     project: keystone
   - service_type: compute
     project: nova
+    versioning_headers:
+      - X-OpenStack-Nova-API-Version
   - service_type: image
     project: glance
   - service_type: load-balancer
@@ -23,6 +25,8 @@ services:
     project: ironic
     aliases:
       - bare-metal
+    versioning_headers:
+      - X-OpenStack-Ironic-API-Version
   - service_type: baremetal-introspection
     project: ironic-inspector
     api_reference: https://docs.openstack.org/ironic-inspector/latest/user/http-api.html
@@ -72,6 +76,8 @@ services:
     aliases:
       - sharev2
       - share
+    versioning_headers:
+      - X-OpenStack-Manila-API-Version
   - service_type: data-protection-orchestration
     project: karbor
     retired: true

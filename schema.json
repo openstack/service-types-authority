@@ -52,6 +52,13 @@
             "retired": {
                 "type": "boolean",
                 "description": "Is the API retired/obsolete?"
+            },
+            "versioning_headers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "An ordered list of historical versioning headers for this service type."
             }
          },
          "additionalProperties":false,

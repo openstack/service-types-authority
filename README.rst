@@ -70,6 +70,21 @@ ordered list of known fallback names. If an API consumer cannot find a given
 list of ``aliases`` here, in the order they are given, in order to find
 the requested endpoint.
 
+versioning_headers (optional)
+-----------------------------
+
+An ordered list of historical microversion request header names for this
+service type, in order of preference. These headers predate the standardized
+``OpenStack-API-Version`` header and are recorded for compatibility with
+existing APIs, not to encourage the introduction of new custom headers.
+
+The value sent in a historical header is the microversion alone, for example
+``X-OpenStack-Nova-API-Version: 2.1``, rather than the service type and
+microversion used by the standard header, for example
+``OpenStack-API-Version: compute 2.1``. Some services only support their
+historical header; listing one does not imply that the standard header is
+also supported. Minimum and maximum version response headers are not included.
+
 secondary (optional)
 --------------------
 
