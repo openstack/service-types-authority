@@ -38,7 +38,7 @@ The published format contains the following keys.
 
 ``forward`` (required)
   A mapping of official service type to aliases. Only contains entries for
-  services that have aliaes.
+  services that have aliases.
 
 ``reverse`` (required)
   A mapping of aliases to official service type.
@@ -58,5 +58,5 @@ The published format contains the following keys.
 The published format is described by a
 :download:`Service Types Authority Published Schema <published-schema.json>`.
 
-.. literalinclude:: schema.json
+.. literalinclude:: published-schema.json
     :language: json

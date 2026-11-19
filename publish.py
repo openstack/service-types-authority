@@ -24,7 +24,7 @@ import sys
 import requests
 
 HTTP_LOCATION = 'https://service-types.openstack.org/service-types.json'
-SPECS_BASE = 'http://specs.openstack.org/openstack'
+SPECS_BASE = 'https://specs.openstack.org/openstack'
 OUTDIR = 'doc/build/html'
 HEADER = """<div class="section" id="service-types-authority">
 <h1>OpenStack Service Types Authority Data</h1>
