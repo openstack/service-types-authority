@@ -55,7 +55,6 @@ services:
     project: designate
   - service_type: workflow
     project: mistral
-    api_reference: https://docs.openstack.org/mistral/latest/api/index.html
     aliases:
       - workflowv2
   - service_type: rating
@@ -63,7 +62,6 @@ services:
     api_reference: https://docs.openstack.org/cloudkitty/latest/api-reference/index.html
   - service_type: operator-policy
     project: congress
-    api_reference: https://docs.openstack.org/congress/latest/user/api.html
     aliases:
       - policy
     retired: true
@@ -86,19 +84,17 @@ services:
       - block-store
   - service_type: alarm
     project: aodh
-    api_reference: https://docs.openstack.org/developer/aodh/webapi/index.html
+    api_reference: https://docs.openstack.org/aodh/latest/contributor/webapi/index.html
     aliases:
       - alarming
   - service_type: meter
     project: ceilometer
-    api_reference: https://docs.openstack.org/developer/ceilometer/webapi/index.html
     aliases:
       - metering
       - telemetry
     retired: true
   - service_type: event
     project: panko
-    api_reference: https://docs.openstack.org/developer/panko/webapi/index.html
     aliases:
       - events
     retired: true
@@ -107,13 +103,11 @@ services:
     api_reference: https://docs.openstack.org/aetos/latest/contributor/api.html
   - service_type: application-deployment
     project: solum
-    api_reference: https://docs.openstack.org/solum/latest/admin/webapi/index.html
     aliases:
       - application_deployment
     retired: true
   - service_type: multi-region-network-automation
     project: tricircle
-    api_reference: https://docs.openstack.org/tricircle/latest/admin/api_v1.html
     aliases:
       - tricircle
     retired: true
@@ -128,7 +122,6 @@ services:
     retired: true
   - service_type: root-cause-analysis
     project: vitrage
-    api_reference: https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html
     aliases:
       - rca
     retired: true

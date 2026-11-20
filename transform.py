@@ -121,8 +121,11 @@ def main():
                 if service_type not in project_types:
                     project_types.append(service_type)
                 mapping['service_types_by_project'][name] = project_types
-        # Generate api_reference if not specified
-        if not service.get('api_reference'):
+        # Retired services have no published API reference anymore,
+        # so record that explicitly rather than inventing a URL.
+        if service.get('retired'):
+            service['api_reference'] = None
+        elif not service.get('api_reference'):
             service['api_reference'] = API_REF_FMT.format(service=service_type)
 
     with open('published-schema.json') as fh:

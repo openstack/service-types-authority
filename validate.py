@@ -56,6 +56,25 @@ def validate_unique_tokens(data):
             yield f"Alias '{alias}' conflicts with a service_type"
 
 
+def validate_api_reference(data):
+    """Ensure api_reference matches the retired state of each service.
+
+    Retired services must have a null api_reference, while all other
+    services must have a published API reference document.
+
+    :return: An iterator over messages for any errors encountered.
+    """
+    for service in data['services']:
+        service_type = service['service_type']
+        if service.get('retired'):
+            if service.get('api_reference'):
+                yield (
+                    f"'{service_type}' is retired but has an api_reference"
+                )
+        elif not service.get('api_reference'):
+            yield f"'{service_type}' is not retired and needs an api_reference"
+
+
 def validate_all(schema, data, registry):
     """Runs all validators, printing any errors to stderr.
 
@@ -66,6 +85,9 @@ def validate_all(schema, data, registry):
         print(msg, file=sys.stderr)
         ret = False
     for msg in validate_unique_tokens(data):
+        print(msg, file=sys.stderr)
+        ret = False
+    for msg in validate_api_reference(data):
         print(msg, file=sys.stderr)
         ret = False
     return ret
