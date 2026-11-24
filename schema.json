@@ -26,9 +26,9 @@
                "description": "The OpenStack project name that contains the definition of the API"
             },
             "api_reference": {
-               "type":"string",
+               "type":["string","null"],
                "format": "url",
-               "description": "A published API reference document for the API identified by this service type."
+               "description": "A published API reference document for the API identified by this service type. Retired services have no published API reference and use null."
             },
             "api_reference_project": {
                "type":"string",
@@ -63,7 +63,6 @@
          },
          "additionalProperties":false,
          "required":[
-            "api_reference",
             "project",
             "service_type"
          ]
